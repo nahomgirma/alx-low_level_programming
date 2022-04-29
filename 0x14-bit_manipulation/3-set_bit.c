@@ -1,14 +1,22 @@
-#include "holberton.h"
+#include "main.h"
+
 /**
- * set_bit - sets bit at index to 1
- * @n: pointer to number
- * @index: index to change
- * Return: 1 on success, -1 on failure
+ * set_bit - sets the value of a bit to 1.
+ * at a given index.
+ * @n: pointer of an unsigned long int.
+ * @index: index of the bit.
+ *
+ * Return: 1 if it worked, -1 if it didn't.
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	if (index > (8 * sizeof(*n)) - 1)
+	unsigned int m;
+
+	if (index > 63)
 		return (-1);
-	*n = *n | (1 << index);
+
+	m = 1 << index;
+	*n = (*n | m);
+
 	return (1);
 }
